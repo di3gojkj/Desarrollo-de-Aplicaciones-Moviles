@@ -51,6 +51,15 @@ class FormularioViewModel: ViewModel(){
         val errorContrasena = if(estado.correo.length < 6) "Minimo 6 caracteres" else null
         val errorCorreo = if(!estado.correo.contains("@") || !estado.correo.contains(".")) "Ingrese un correo valido" else null
         val errorTerminos = if(!estado.aceptaTerminos) "Debes aceptar los terminos" else null
+        //Verificar si eisten errores
+        val hayErrores = listOf(errorNombre, errorContrasena, errorCorreo, errorTerminos).any { it !=null }
+        _uiState.update { it.copy(
+            errorNombre = errorNombre,
+            errorContrasena = errorContrasena,
+            errorCorreo = errorCorreo,
+            errorTerminos = errorTerminos,
+            registroExitoso = !hayErrores
+        ) }
     }
 
 }

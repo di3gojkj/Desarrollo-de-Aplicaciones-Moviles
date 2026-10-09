@@ -55,7 +55,7 @@ fun ImagenEncabezado(
     modifier: Modifier = Modifier
 ) {
     // Color leído desde res/values/colors.xml (forma "clásica" de Android)
-    val sombra = colorResource(R.color.sombra_imagen)
+    val sombra = colorResource(R.color.imagen_sombra)
 
     Box(
         modifier = modifier
